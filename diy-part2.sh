@@ -52,9 +52,6 @@ git clone --depth=1 --single-branch https://github.com/sirpdboy/luci-app-ddns-go
 #luci-app-mosdns
 git clone --depth=1 --single-branch https://github.com/sbwml/luci-app-mosdns.git
 
-# passwall/passwall2
-git clone --depth=1 --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall.git
-git clone --depth=1 --single-branch https://github.com/Openwrt-Passwall/openwrt-passwall2.git
 
 # 移除 openwrt feeds 自带的核心库
 rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,v2ray-plugin,xray-plugin,geoview,shadow-tls}
