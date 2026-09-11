@@ -62,6 +62,9 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages package/
 rm -rf feeds/luci/applications/luci-app-passwall
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall package/passwall-luci
 
+# dockerman
+git clone --depth=1 --single-branch https://github.com/sirpdboy/luci-app-dockerman.git
+
 # adguardHome
 git clone --depth=1 --single-branch https://github.com/sirpdboy/luci-app-adguardhome.git
 
