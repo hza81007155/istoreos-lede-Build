@@ -24,6 +24,8 @@ rm -rf feeds/packages/net/xray-core
 rm -rf feeds/packages/net/lucky
 rm -rf feeds/packages/utils/coremark
 
+CONFIG_PACKAGE_luci-app-ssr-plus=n
+
 #更改默认地址为192.168.10.12
 sed -i 's/192.168.1.1/192.168.10.12/g' package/base-files/files/bin/config_generate
 
