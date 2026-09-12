@@ -48,62 +48,6 @@ echo "=============== 更新源码 ==============="
 ./scripts/feeds install -a
 echo "=============== 安装完成 ==============="
 
-echo "========================================"
-echo "添加软件源并更新更新feeds.conf.default"
-echo "========================================"
-if grep -q "github.com/kenzok8/openwrt-packages" feeds.conf.default; then
-    echo "kenzo 已存在，跳过"
-else
-    echo "添加 kenzo..."
-    sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-fi
-echo "检查 small..."
-
-if grep -q "github.com/kenzok8/small" feeds.conf.default; then
-    echo "small 已存在，跳过"
-else
-    echo "添加 small..."
-    sed -i '1i src-git small https://github.com/kenzok8/small' feeds.conf.default
-fi
-
-echo "=============== 安装软件！==============="
-./scripts/feeds update -a
-./scripts/feeds install -a
-echo "=============== 安装完成！==============="
-
-echo "========================================"
-echo "清理不需要的插件"
-echo "========================================"
-echo "→ 清理 feeds/ 下的源目录..."
-
-rm -rf feeds/packages/net/adguardhome
-rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/kenzo/luci-app-argon-config
-rm -rf feeds/kenzo/luci-app-adguardhome
-rm -rf feeds/kenzo/smartdns
-rm -rf feeds/kenzo/luci-app-smartdns
-rm -rf feeds/kenzo/luci-theme-argon
-rm -rf feeds/kenzo/adguardhome
-rm -rf feeds/small/luci-app-fchomo
-rm -rf feeds/kenzo/luci-theme-alpha
-rm -rf feeds/kenzo/luci-app-eqos
-
-echo "→ 清理索引 package/feeds/ 下的软链接..."
-
-rm -rf package/feeds/packages/adguardhome
-rm -rf package/feeds/luci/luci-theme-argon
-rm -rf package/feeds/kenzo/luci-app-argon-config
-rm -rf package/feeds/kenzo/luci-app-adguardhome
-rm -rf package/feeds/kenzo/smartdns
-rm -rf package/feeds/kenzo/luci-app-smartdns
-rm -rf package/feeds/kenzo/luci-theme-argon
-rm -rf package/feeds/kenzo/adguardhome
-rm -rf package/feeds/small/luci-app-fchomo
-rm -rf package/feeds/kenzo/luci-theme-alpha
-rm -rf package/feeds/kenzo/luci-app-eqos
-
-echo "============= 清理索引完成！============="
-
 echo "==============================="
 echo "添加插件"
 echo "==============================="
