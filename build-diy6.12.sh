@@ -116,6 +116,15 @@ echo "→ 清理索引 package/feeds/ 下的软链接..."
 
 rm -rf package/feeds/packages/adguardhome
 rm -rf package/feeds/luci/luci-theme-argon
+rm -rf package/feeds/kenzo/luci-app-argon-config
+rm -rf package/feeds/kenzo/luci-app-adguardhome
+rm -rf package/feeds/kenzo/smartdns
+rm -rf package/feeds/kenzo/luci-app-smartdns
+rm -rf package/feeds/kenzo/luci-theme-argon
+rm -rf package/feeds/kenzo/adguardhome
+rm -rf package/feeds/small/luci-app-fchomo
+rm -rf package/feeds/kenzo/luci-theme-alpha
+rm -rf package/feeds/kenzo/luci-app-eqos
 
 echo "============= 清理索引完成！============="
 
