@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
 
   schedule:
-   - cron: 0 18 1 * *
+   - cron: 0 14 1 * *
 
 env:
   REPO_URL: https://github.com/hza81007155/lede
