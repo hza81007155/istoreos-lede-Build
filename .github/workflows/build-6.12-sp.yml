@@ -101,7 +101,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ env.DATE }}-OpenWrt-k${{ env.KERNEL }}-Firmware
-          name: ${{ env.DATE }}-OpenWrt-k${{ env.KERNEL }}-Firmware
+          name: ${{ env.DATE }}-LEDE18.06-SP-k${{ env.KERNEL }}-Firmware
           make_latest: ${{ matrix.kernel == '6.12' }}
           overwrite_files: true
           files: |
