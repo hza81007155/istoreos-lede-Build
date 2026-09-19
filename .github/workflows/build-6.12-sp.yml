@@ -1,4 +1,4 @@
-name: Build OpenWrt-6.12
+name: Build OpenWrt-6.12-SP
 
 on:
   workflow_dispatch:
