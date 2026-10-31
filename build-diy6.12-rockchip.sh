@@ -185,7 +185,7 @@ KERNEL=$1
 sed -i "s/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=${KERNEL}/" target/linux/x86/Makefile
 echo "修改完成"
 
-wget -O .config https://raw.githubusercontent.com/hza81007155/istoreos-lede-Build/main/.config
+wget -O rockchip.config https://raw.githubusercontent.com/hza81007155/istoreos-lede-Build/main/rockchip.config
 
 echo "============================================="
 echo "DIY 脚本执行完成"
