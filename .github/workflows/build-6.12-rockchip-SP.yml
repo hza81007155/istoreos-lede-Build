@@ -1,4 +1,4 @@
-name: Build OpenWrt-6.12-SP
+name: Build OpenWrt-6.12-rockchip-SP
 
 on:
   workflow_dispatch:
@@ -84,8 +84,8 @@ jobs:
       - name: Upload Firmware
         uses: actions/upload-artifact@v6
         with:
-          name: ${{ env.DATE }}-openwrt-x86-k${{ env.KERNEL }}-firmware
-          path: lede/bin/targets/x86/64/
+          name: ${{ env.DATE }}-openwrt-rockchip-k${{ env.KERNEL }}-firmware
+          path: lede/bin/targets/rockchip
           if-no-files-found: error
 
       # 上传 packages
@@ -93,15 +93,15 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: ${{ env.DATE }}-openwrt-x86-k${{ env.KERNEL }}-packages
-          path: lede/bin/packages/x86_64/
+          path: lede/bin/packages/rockchip/
           if-no-files-found: warn
           
       # 发布 Release
       - name: Publish Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ env.DATE }}-LEDE18.06-SP-k${{ env.KERNEL }}
-          name: ${{ env.DATE }}-LEDE18.06-SP-k${{ env.KERNEL }}
+          tag_name: ${{ env.DATE }}-LEDE18.06-rockchip-SP-k${{ env.KERNEL }}
+          name: ${{ env.DATE }}-LEDE18.06-rockchipSP-k${{ env.KERNEL }}
           make_latest: ${{ matrix.kernel == '6.12' }}
           overwrite_files: true
           files: |
