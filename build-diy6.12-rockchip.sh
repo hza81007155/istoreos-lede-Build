@@ -180,10 +180,10 @@ date_version=$(date +"%y.%m.%d")
 orig_version=$(cat "package/lean/default-settings/files/zzz-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
 sed -i "s/${orig_version}/R${date_version} by hza800755 /g" package/lean/default-settings/files/zzz-default-settings
 
-echo "修改 x86 内核版本"
-KERNEL=$1
-sed -i "s/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=${KERNEL}/" target/linux/x86/Makefile
-echo "修改完成"
+#echo "修改 x86 内核版本"
+#KERNEL=$1
+#sed -i "s/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=${KERNEL}/" target/linux/x86/Makefile
+#echo "修改完成"
 
 wget -O rockchip.config https://raw.githubusercontent.com/hza81007155/istoreos-lede-Build/main/rockchip.config
 
