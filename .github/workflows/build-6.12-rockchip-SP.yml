@@ -92,7 +92,7 @@ jobs:
       - name: Upload Packages
         uses: actions/upload-artifact@v6
         with:
-          name: ${{ env.DATE }}-openwrt-x86-k${{ env.KERNEL }}-packages
+          name: ${{ env.DATE }}-openwrt-rockchip-k${{ env.KERNEL }}-packages
           path: lede/bin/packages/rockchip/
           if-no-files-found: warn
           
@@ -105,9 +105,9 @@ jobs:
           make_latest: ${{ matrix.kernel == '6.12' }}
           overwrite_files: true
           files: |
-            lede/bin/targets/x86/64/*.img*
-            lede/bin/targets/x86/64/*.vmdk
-            lede/bin/targets/x86/64/*.qcow2
-            lede/bin/targets/x86/64/sha256sums
+            lede/bin/targets/rockchip/armv8/*.img*
+            lede/bin/targets/rockchip/armv8/*.vmdk
+            lede/bin/targets/rockchip/armv8/*.qcow2
+            lede/bin/targets/rockchip/armv8/sha256sums
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
