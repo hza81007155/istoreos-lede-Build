@@ -185,7 +185,7 @@ sed -i "s/${orig_version}/R${date_version} by hza800755 /g" package/lean/default
 #sed -i "s/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=${KERNEL}/" target/linux/x86/Makefile
 #echo "修改完成"
 
-wget -O rockchip.config https://raw.githubusercontent.com/hza81007155/istoreos-lede-Build/main/rockchip.config
+wget -O .config https://raw.githubusercontent.com/hza81007155/istoreos-lede-Build/main/.config
 
 echo "============================================="
 echo "DIY 脚本执行完成"
