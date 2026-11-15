@@ -1,4 +1,4 @@
-name: Build OpenWrt-6.12-SP
+name: Build OpenWrt-6.18-SP
 
 on:
   workflow_dispatch:
@@ -26,8 +26,8 @@ jobs:
           #   script: 'build-diy5.15.sh'
           # - kernel: '6.6'
           #   script: 'build-diy6.6.sh'  
-          - kernel: '6.12'
-            script: 'build-diy6.12.sh'
+          - kernel: '6.18'
+            script: 'build-diy6.18.sh'
 
     steps:
       # 拉取你自己的仓库（包含 build-diy5.10.sh、build-diy5.15.sh、build-diy6.12.sh）
@@ -100,9 +100,9 @@ jobs:
       - name: Publish Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ env.DATE }}-LEDE18.06-SP-k${{ env.KERNEL }}
-          name: ${{ env.DATE }}-LEDE18.06-SP-k${{ env.KERNEL }}
-          make_latest: ${{ matrix.kernel == '6.12' }}
+          tag_name: ${{ env.DATE }}-LEDE6.18-SP-k${{ env.KERNEL }}
+          name: ${{ env.DATE }}-LEDE6.18-SP-k${{ env.KERNEL }}
+          make_latest: ${{ matrix.kernel == '6.18' }}
           overwrite_files: true
           files: |
             lede/bin/targets/x86/64/*.img*
