@@ -167,10 +167,7 @@ sed -i 's/192.168.1.1/192.168.10.12/g' package/base-files/luci/bin/config_genera
 sed -i 's/192.168.1.1/192.168.10.12/g' package/base-files/files/bin/config_generate
 
 echo "设置默认主题为 argon"
-# 使用 gi 标志，一个命令同时搞定大小写，且描述和依赖包名都换掉
-sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci/Makefile
-sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-nginx/Makefile
-sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-ssl-nginx/Makefile
+sed -i 's#mediaurlbase.*#mediaurlbase '\''/luci-static/argon'\''#' ${TARGET_DIR}/etc/config/luci
 
 echo "修改固件品牌名称"
 #sed -i 's/LEDE/OpenWrt/g' package/base-files/files/bin/config_generate
