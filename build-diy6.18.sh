@@ -10,9 +10,9 @@ echo "处理 feeds.conf.default 是否已是目标状态..."
 echo "========================================="
 
 FILENAME="feeds.conf.default"
-TARGET_LINE="src-git luci https://github.com/coolsnowwolf/luci.git;master"
+TARGET_LINE="src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12"
 
-# 1. 注释掉所有带分号的 luci 行（如 25.12）
+# 1. 注释掉所有带分号的 luci 行
 # 改进：加 ^ 确保只匹配没被注释的行，避免变成 ##
 sed -i '/^src-git luci.*;/s/^/#/' "$FILENAME"
 
@@ -136,7 +136,7 @@ if [ -d "package/downloads/luci-theme-argon" ]; then
     echo "luci-theme-argon 已存在，跳过"
 else
     echo "正在克隆 luci-theme-argon..."
-    git clone -b 18.06 https://github.com/hza81007155/luci-theme-argon.git package/downloads/luci-theme-argon
+    git clone -b master https://github.com/hza81007155/luci-theme-argon.git package/downloads/luci-theme-argon
 fi
 
 # luci-app-adguardhome
