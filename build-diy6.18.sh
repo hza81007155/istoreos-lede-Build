@@ -54,14 +54,6 @@ echo "========================================"
 if [ -d "package/kenzo" ]; then
     echo "kenzo 已存在，跳过"
 else
-    echo "正在克隆 kenzo (openwrt-packages)..."
-    git clone --depth 1 https://github.com/kenzok8/openwrt-packages.git package/kenzo
-fi
-echo "检查 small..."
-
-if [ -d "package/small" ]; then
-    echo "small 已存在，跳过"
-else
     echo "正在克隆 small..."
     git clone --depth 1 https://github.com/kenzok8/small.git package/small
 fi
