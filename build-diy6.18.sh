@@ -12,7 +12,7 @@ echo "========================================="
 FILENAME="feeds.conf.default"
 TARGET_LINE="src-git luci https://github.com/coolsnowwolf/luci.git;openwrt-25.12"
 
-# 1. 注释掉所有带分号的 luci 行
+# 1. 注释掉所有带分号的 luci 行（如 25.12）
 # 改进：加 ^ 确保只匹配没被注释的行，避免变成 ##
 sed -i '/^src-git luci.*;/s/^/#/' "$FILENAME"
 
@@ -53,6 +53,14 @@ echo "克隆软件源到 package/ 目录"
 echo "========================================"
 if [ -d "package/kenzo" ]; then
     echo "kenzo 已存在，跳过"
+else
+    echo "正在克隆 kenzo (openwrt-packages)..."
+    git clone --depth 1 https://github.com/kenzok8/openwrt-packages.git package/kenzo
+fi
+echo "检查 small..."
+
+if [ -d "package/small" ]; then
+    echo "small 已存在，跳过"
 else
     echo "正在克隆 small..."
     git clone --depth 1 https://github.com/kenzok8/small.git package/small
@@ -160,9 +168,9 @@ sed -i 's/192.168.1.1/192.168.10.12/g' package/base-files/files/bin/config_gener
 
 echo "设置默认主题为 argon"
 # 使用 gi 标志，一个命令同时搞定大小写，且描述和依赖包名都换掉
-sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-light/Makefile
+sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci/Makefile
 sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-nginx/Makefile
-sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-layer2/Makefile
+sed -i "s/bootstrap/argon/gi" feeds/luci/collections/luci-ssl-nginx/Makefile
 
 echo "修改固件品牌名称"
 #sed -i 's/LEDE/OpenWrt/g' package/base-files/files/bin/config_generate
